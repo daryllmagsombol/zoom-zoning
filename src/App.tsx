@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import OpenSeaDragon from "openseadragon";
 
 function App() {
+  useEffect(() => {
+    const osd = OpenSeaDragon({
+      id: "openseadragon1",
+      prefixUrl: "https://openseadragon.github.io/openseadragon/images/",
+      showNavigator: true,
+      navigatorPosition: "TOP_LEFT",
+      showNavigationControl: true,
+      tileSources:
+        "https://www.imgonline.com.ua/examples/rays-of-light-in-the-sky.jpg",
+    });
+
+    // osd.addSimpleImage(require("./images/insure-form.jpg"));
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div id="openseadragon1" style={{ width: "800px", height: "600px" }}></div>
   );
 }
 
